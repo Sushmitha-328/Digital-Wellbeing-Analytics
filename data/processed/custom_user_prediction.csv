@@ -1,0 +1,2 @@
+age,gender,daily_screen_time_hours,social_media_hours,gaming_hours,work_study_hours,sleep_hours,notifications_per_day,app_opens_per_day,weekend_screen_time,stress_level,academic_work_impact,total_leisure_hours,screen_to_sleep_ratio,weekend_screen_time_increase,notification_intensity,productive_time_ratio,prediction,not_addicted_probability,addicted_probability
+21,Female,8.0,4.0,2.0,4.0,7.0,150,100,10.0,High,Yes,6.0,1.1428571428571428,2.0,1.5,0.3333333333333333,1,0.12,0.88
