@@ -1,0 +1,51 @@
+# ============================================================
+# Digital Wellbeing Analytics — Experiment Configuration
+# ============================================================
+# All tunable parameters are centralised here so that notebooks
+# and scripts can import from this file rather than hard-coding
+# values.
+
+experiment:
+  random_state: 42          # Global seed for reproducibility
+  test_size: 0.20           # Fraction of data held out for testing
+  cv_folds: 5               # Number of stratified k-fold splits
+  cv_scoring: f1            # Primary CV metric
+
+data:
+  raw_file: data/raw/smartphone_usage.csv
+  processed_file: data/processed/smartphone_usage_cleaned.csv
+  engineered_file: data/processed/smartphone_usage_feature_engineered.csv
+
+model:
+  final_model_path: random_forest_final_model.pkl
+  target_column: addicted_label
+  drop_columns:
+    - transaction_id
+    - user_id
+    - addiction_level      # Dropped: high NaN rate + potential leakage
+
+  categorical_features:
+    - gender
+    - stress_level
+    - academic_work_impact
+
+risk_thresholds:
+  low_max: 0.35             # P(addicted) < 0.35  → LOW
+  high_min: 0.65            # P(addicted) >= 0.65 → HIGH
+  # 0.35 <= P < 0.65        → MODERATE
+
+hyperparameter_search:
+  n_iter: 30                # RandomizedSearchCV iterations
+  random_forest:
+    n_estimators: [100, 200, 300, 400]
+    max_depth: [null, 10, 20, 30]
+    min_samples_split: [2, 5, 10]
+    min_samples_leaf: [1, 2, 4]
+    max_features: [sqrt, log2, null]
+    class_weight: [balanced, null]
+  gradient_boosting:
+    n_estimators: [100, 200, 300]
+    learning_rate: [0.05, 0.1, 0.2]
+    max_depth: [3, 4, 5]
+    subsample: [0.7, 0.8, 1.0]
+    min_samples_leaf: [10, 20, 30]
