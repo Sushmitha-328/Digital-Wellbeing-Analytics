@@ -1,0 +1,11 @@
+Feature,Importance,Importance_Percentage
+social_media_hours,0.2672142599361452,26.72
+daily_screen_time_hours,0.20972555589416494,20.97
+weekend_screen_time,0.13898221989833603,13.9
+screen_to_sleep_ratio,0.10423326076798105,10.42
+total_leisure_hours,0.08917863871367032,8.92
+productive_time_ratio,0.04288442876328937,4.29
+gaming_hours,0.02286960169731609,2.29
+sleep_hours,0.020022283861840594,2.0
+weekend_screen_time_increase,0.019164180123187814,1.92
+work_study_hours,0.016484493900139233,1.65
